@@ -1,0 +1,266 @@
+\documentclass[titlepage,a4paper,10pt]{article}
+\usepackage{listings, courier, color, xcolor, setspace, fancyhdr, titlesec, dingbat, mdframed, multicol, multirow}
+\usepackage{fontspec, xunicode, xltxtra}
+\usepackage{graphicx, amssymb, amsmath, textcomp, booktabs}
+\usepackage[left=1.5cm, right=0.4cm, top=1.7cm, bottom=0.0cm]{geometry}
+\usepackage{pdfpages}
+\usepackage{tocloft}
+\usepackage{nameref}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{esint}
+\usepackage{xeCJK}
+
+\pagestyle{fancy}
+\setlength{\headsep}{0.1cm}
+\rhead{Page \thepage}
+\lhead{Talisman's template base}
+\setlength{\columnsep}{16pt}
+
+\titlespacing{\section}{0pt}{0pt}{0pt}
+\titlespacing{\subsection}{0pt}{0pt}{0pt}
+\titlespacing{\subsubsection}{0pt}{0pt}{0pt}
+\titlespacing{\paragraph}{0pt}{0pt}{10pt}
+\titlespacing{\subparagraph}{0pt}{0pt}{10pt}
+
+\definecolor{numbercolor}{rgb}{0.369,0.1,0.218}
+\definecolor{identifiercolor}{rgb}{0,0,0}
+\definecolor{commentcolor}{rgb}{0,0.5,0.1}
+\definecolor{keywordcolor}{rgb}{0.205,0.248,0.495}
+% \definecolor{keywordcolor}{rgb}{0.8,0.2,0.2}
+\definecolor{basiccolor}{rgb}{0.485,0.363,0.261}
+\definecolor{emphcolor}{rgb}{0.9,0.2,0}
+
+\lstset{
+	basicstyle=\footnotesize\bfseries\ttfamily\color{basiccolor},
+	breaklines=true,
+	frame=single,
+	rulecolor=\color{identifiercolor},
+	language=c++,
+	tabsize=4,
+	numbers=left,
+	numbersep=5.5pt,
+	numberstyle=\tiny\bfseries\ttfamily\color{numbercolor},
+	identifierstyle=\color{identifiercolor},
+	commentstyle=\color{commentcolor},
+	keywordstyle=\color{keywordcolor},
+	stringstyle=\color{emphcolor}
+}
+
+\setlist{nolistsep}
+
+\def \bangle{ \atopwithdelims \langle \rangle}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+\title{Talisman}
+%\author{lezdzh}
+
+\begin{document}
+	\maketitle
+	\begin{multicols}{2}
+%	\begin{CJK}{UTF8}{gbsn}
+		\setcounter{tocdepth}{3}
+		\begingroup
+		\let\cleardoublepage\relax
+		\let\clearpage\relax
+		\renewcommand{\contentsname}{目录}
+		\tableofcontents
+		\newpage
+		\begin{spacing}{0.8}
+		\footnotesize
+		\section{计算几何}
+			\subsection{二维计算几何-wrz}
+				\lstinputlisting{computational-geometry/2d/2d-wrz.cpp}
+			\subsection{basis}
+				\lstinputlisting{computational-geometry/2d/basis.cpp}
+			\subsection{圆交}
+				\lstinputlisting{computational-geometry/2d/circles-intersections.cpp}
+			\subsection{圆的面积并}
+				\lstinputlisting{computational-geometry/2d/cirque-area-merge.cpp}
+			\subsection{凸包}
+				\lstinputlisting{computational-geometry/2d/convex.cpp}
+			\subsection{三角形内心，外心，垂心}
+				\lstinputlisting{computational-geometry/2d/triangle.cpp}
+			\subsection{费马点}
+				\input{computational-geometry/2d/fermat-point.tex}
+			\subsection{多边形和圆的交}
+				\lstinputlisting{computational-geometry/2d/多边形和圆的交.cpp}
+			\subsection{点到凸包切线}
+				\lstinputlisting{computational-geometry/2d/点到凸包切线.cpp}
+			\subsection{闵可夫斯基和}
+				\lstinputlisting{computational-geometry/2d/闵可夫斯基和.cpp}
+			\subsection{最近点对}
+				\lstinputlisting{computational-geometry/2d/最近点对.cpp}
+			\subsection{最小覆盖圆}
+				\lstinputlisting{computational-geometry/2d/最小覆盖圆.cpp}
+			\subsection{最小覆盖球}
+				\lstinputlisting{computational-geometry/2d/最小覆盖球.cpp}
+			\subsection{阿波罗尼茨圆}
+				\input{computational-geometry/2d/阿波罗尼茨圆.tex}
+			\subsection{圆幂}
+				\input{computational-geometry/2d/圆幂.tex}
+			\subsection{球面}
+				\input{computational-geometry/2d/球面.tex}
+			\subsection{公式}
+				\input{computational-geometry/2d/Formula(Saga).tex}
+			\subsection{三维计算几何}
+				\lstinputlisting{computational-geometry/3d/basis.cpp}
+			\subsection{三维凸包}
+				\lstinputlisting{computational-geometry/3d/convex.cpp}
+
+		\section{数据结构}
+			\subsection{KD树-wrz}
+				\lstinputlisting{data-structure/kd-tree-3d-wrz.cpp}
+			\subsection{KD树-gwx}
+				\lstinputlisting{data-structure/kd-tree-gwx.cpp}
+			\subsection{LCT-wrz}
+				\lstinputlisting{data-structure/LCT-wrz.cpp}
+			\subsection{左偏树-wrz}
+				\lstinputlisting{data-structure/leftist-tree-wrz.cpp}
+			\subsection{splay-wrz}
+				\lstinputlisting{data-structure/splay-wrz.cpp}
+			\subsection{treap-gwx}
+				\lstinputlisting{data-structure/treap-gwx.cpp}
+			\subsection{可持久化平衡树}
+				\lstinputlisting{data-structure/persistent-balanced-tree.cpp}
+		\section{图论}
+			\subsection{匹配}
+				\input{graph-theory/matching.tex}
+			\subsection{Hopcoft-Karp}
+				\lstinputlisting{graph-theory/Hopcoft-Karp-algorithm.cpp}
+			\subsection{KM-truly-n3}
+				\lstinputlisting{graph-theory/KM-truly-n3.cpp}
+			\subsection{tarjan-gwx}
+				\lstinputlisting{graph-theory/tarjan-gwx.cpp}
+			\subsection{边双联通-gwx}
+				\lstinputlisting{graph-theory/biconnected-graph-edge-gwx.cpp}
+			\subsection{最大团}
+				\lstinputlisting{graph-theory/maximum-clique.cpp}
+			\subsection{欧拉回路-wrz}
+				\lstinputlisting{graph-theory/Euler-circuit-wrz.cpp}
+			\subsection{SPFA判负环-wrz}
+				\lstinputlisting{graph-theory/SPFA-check-negtive-cycle-wrz.cpp}
+			\subsection{k短路a星-gwx}
+				\lstinputlisting{graph-theory/kth-shortest-path-astar-gwx.cpp}
+			\subsection{K短路可并堆}
+				\lstinputlisting{graph-theory/kth-shortest-path-mergeable-heap.cpp}
+			\subsection{上下界网络流}
+				\input{graph-theory/flow.tex}
+			\subsection{zkw费用流}
+				\lstinputlisting{graph-theory/zkw-cost-flow-gwx.cpp}
+			\subsection{stoer-wagner无向图最小割树}
+				\lstinputlisting{graph-theory/stoer-wagner-algorithm.cpp}
+			\subsection{朱刘算法-gwx}
+				\lstinputlisting{graph-theory/zhu-liu-algorithm-gwx.cpp}
+			\subsection{树哈希}
+				\input{graph-theory/tree-hash.tex}
+			\subsection{矩阵树定理}
+				\input{graph-theory/matrix-tree.tex}
+			\subsection{带花树}
+				\lstinputlisting{graph-theory/blossom-algorithm.cpp}
+			\subsection{支配树-gwx}
+				\lstinputlisting{graph-theory/dominator_tree-gwx.cpp}
+			\subsection{斯坦纳树}
+				\lstinputlisting{graph-theory/SteinerTree.cpp}
+			\subsection{弦图}
+				\lstinputlisting{graph-theory/chordal-graph.cpp}
+			% \subsection{图论知识}
+				% \input{graph-theory/图论知识.tex} 
+		\section{数学}
+			% \subsection{博弈论}
+				% \input{mathematics/game-theory.tex}
+			\subsection{杜教筛}
+				\lstinputlisting{mathematics/dujiaoshai-sum-of-Mobius-function.cpp}
+			\subsection{直线下整点}
+				\input{mathematics/integer-lattice-under-segment.tex}
+			\subsection{拉格朗日插值}
+				\lstinputlisting{mathematics/Lagrange-polynomials-O(n)-O(nlogn)-wrz.cpp}
+			\subsection{FFT-wrz}
+				\lstinputlisting{mathematics/FFT-wrz.cpp}
+			\subsection{NTT-gwx}
+				\lstinputlisting{mathematics/NTT-gwx.cpp}
+			\subsection{FWT}
+				\lstinputlisting{mathematics/FWT.cpp}
+			\subsection{高精度-wrz}
+				\lstinputlisting{mathematics/high-precision-wrz.cpp}
+			\subsection{线性基-gwx}
+				\lstinputlisting{mathematics/linear_basement-gwx.cpp}
+			\subsection{线性递推}
+				\lstinputlisting{mathematics/linear-recurrence.cpp}
+			\subsection{单纯形}
+				\lstinputlisting{mathematics/simplex.cpp}
+			\subsection{素数测试-gwx}
+				\lstinputlisting{mathematics/pollard-rho-and-primality-test-gwx.cpp}
+			\subsection{原根-gwx}
+				\lstinputlisting{mathematics/primitive-root-gwx.cpp}
+			\subsection{勾股数}
+				\input{mathematics/Pythagorean-triple.tex}
+			\subsection{Pell方程}
+				\input{mathematics/pell-equation.tex}
+			\subsection{平方剩余}
+				\input{mathematics/quadric-residue.tex}
+			\subsection{多点求值与快速插值}
+				\input{mathematics/多点求值与快速插值.tex}
+			\subsection{多项式牛顿法}
+				\input{mathematics/多项式牛顿法.tex}
+		\section{字符串}
+			\subsection{AC自动机-wrz}
+				\lstinputlisting{string/AC-automaton-wrz.cpp}
+			\subsection{扩展KMP-gwx}
+				\lstinputlisting{string/exkmp-gwx.cpp}
+			\subsection{Manacher-gwx}
+				\lstinputlisting{string/manacher-gwx.cpp}
+			\subsection{最小表示-gwx}
+				\lstinputlisting{string/minimal-representation-gwx.cpp}
+			\subsection{回文树-wrz}
+				\lstinputlisting{string/palindromic-tree-wrz.cpp}
+			\subsection{后缀数组-wrz}
+				\lstinputlisting{string/suffix-array-wrz.cpp}
+			\subsection{后缀数组SAIS}
+				\lstinputlisting{string/suffix-array-SAIS.cpp}
+			\subsection{后缀自动机-wrz}
+				\lstinputlisting{string/suffix-automaton-wrz.cpp}
+			\subsection{扩展后缀自动机-wrz}
+				\lstinputlisting{string/ex-suffix-automaton-wrz.cpp}
+			\subsection{结论}
+				\input{string/Conclusions.tex}
+		\section{其他}
+			\subsection{蔡勒公式}
+				\lstinputlisting{others/zellers-congruence.cpp}
+			\subsection{dancing-links}
+				\lstinputlisting{others/dancing-links.cpp}
+			\subsection{枚举子集}
+				\lstinputlisting{others/enumerate-subset.cpp}
+			\subsection{梅森旋转}
+				\lstinputlisting{others/mersenne-twister.cpp}
+			\subsection{大数乘法取模}
+				\lstinputlisting{others/O1-multiply-mod.cpp}
+		\section{提示}
+			\subsection{Vimrc}
+				\lstinputlisting[language=]{hints/vimrc}
+			\subsection{make支持c++11}
+				\lstinputlisting{hints/c++11.txt}
+			\subsection{Java}
+				\lstinputlisting{hints/javaNote.java}
+			\subsection{cout输出小数}
+				\lstinputlisting{hints/control-cout-precision.cpp}
+			\subsection{释放容器内存}
+				\lstinputlisting{hints/truly-release-container-space.cpp}
+			\subsection{tuple}
+				\lstinputlisting{hints/tuple.cpp}
+			\subsection{读入优化 \& 手开O3}
+				\lstinputlisting{hints/unbeatable-input-acceleration.cpp}
+			\subsection{手开栈}
+				\input{hints/stack-hack.tex}
+		\section{附录-数学公式}
+			\subsection{}
+				\input{appendix-formula/Formula.tex}
+				\input{appendix-formula/table-of-formulae.tex}
+				% \input{appendix-formula/table-of-range.tex}
+		\end{spacing}
+		\endgroup
+	\end{multicols}
+%	\end{CJK}
+\end{document}
